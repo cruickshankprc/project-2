@@ -30,20 +30,33 @@ const Artists = () => {
         const newSimilarArtists = data._embedded.artists.map((similarArtist) => {
           return { ...similarArtist, originalArtistID: id }
         })
-        setSimilarArtists(similarArtists.concat(newSimilarArtists))
-        console.log(newSimilarArtists)
+        const test = similarArtists.concat(newSimilarArtists)
+        const result = []
+        const seen = {}
+        test.forEach((artist) => {
+          if (!seen.hasOwnProperty(artist.id)) {
+            result.push(artist)
+            seen[artist.id] = true
+          }
+        })
+
+        setSimilarArtists(result)
+        // console.log(similarArtists)
       })
 
 
   }
+  console.log(similarArtists)
 
-  console.log(artistsData)
-  return <div>
-    <h1> Racial and Ethic Identity</h1>
+  // console.log(artistsData)
+  return <div className="randeipage">
+    <h1> RACIAL AND ETHNIC IDENTITY</h1>
     {artistsData.map((artist, index) => {
       return <div key={index}>
-        <h2>{artist.name}</h2>
-        <img src={artist._links.thumbnail.href} alt={artist.name} />
+        <div className="artistCard">
+          <h2>{artist.name.toUpperCase()}</h2>
+          <img src={artist._links.thumbnail.href} alt={artist.name} />
+        </div>
         {similarArtists.map((similarArtist) => {
           if (similarArtist.originalArtistID === artist.id) {
             return <div>

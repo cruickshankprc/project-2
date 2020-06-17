@@ -26,54 +26,6 @@ const App = () => {
   </HashRouter>
 }
 
-//   const [artistsData, setArtistsData] = useState([])
-
-//   useEffect(() => {
-//     fetch('https://api.artsy.net/api/artists?cursor=100%3A5ee9c1c34ed9d50007d748b9&gene_id=4de93fa9c182420001004327', { headers: { 'X-XAPP-Token': `${token}` } })
-//       .then(resp => resp.json())
-//       .then(data => {
-//         setArtistsData(data._embedded.artists)
-//         // console.log(data)
-//       })
-//   }, [])
-
-//   // const myArray = artistsData._embeddedartists
-
-
-//   console.log(artistsData)
-//   return <div>
-//     {artistsData.map((artist, index) => {
-//       return <div key={index}>
-//         <h1>{artist.name}</h1>
-//         <img src={artist._links.thumbnail.href} alt={artist.name} />
-//       </div>
-//     })}
-//   </div>
-
-// return <HashRouter>
-// <Switch>
-//   <Route exact path="/" component={HomePage} />
-//   <Route exact path="/RandEI" component={RandEI} />
-// </Switch>
-// </HashRouter>
-
-
-
-
-// const HomePage = () => {
-//   const [henryTaylor, setHenry] = useState([])
-//   useEffect(() => {
-//     fetch('https://api.artsy.net/api/artists/henry-taylor', { headers: { 'X-XAPP-Token': `${token}` } })
-//       .then(resp => resp.json())
-//       .then(data => {
-//         setHenry(data)
-//         // console.log(data)
-//       })
-//   }, [])
-
-// }
-
-
 
 export default App
 
