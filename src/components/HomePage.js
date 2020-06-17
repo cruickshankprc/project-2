@@ -15,7 +15,7 @@ const HomePage = () => {
 
   // console.log(henryTaylor)
 
-  return <h1> Hello </h1>
+ 
 }
 
 

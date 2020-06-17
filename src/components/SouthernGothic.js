@@ -1,19 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
-import Carousel, { Dots } from '@brainhubeu/react-carousel'
-import '@brainhubeu/react-carousel/lib/style.css'
 
-
-
-const Artists = () => {
+const SouthernGothic = () => {
 
   const [artistsData, setArtistsData] = useState([])
   const [similarArtists, setSimilarArtists] = useState([])
   const [key, setKey] = useState('')
 
   useEffect(() => {
-    fetch('https://api.artsy.net/api/artists?cursor=100%3A5ee9c1c34ed9d50007d748b9&gene_id=4de93fa9c182420001004327', { headers: { 'X-XAPP-Token': `${token}` } })
+    fetch('https://api.artsy.net/api/artists?gene_id=5266f6c2275b2414e300025b', { headers: { 'X-XAPP-Token': `${token}` } })
       .then(resp => resp.json())
       .then(data => {
         const newData = data._embedded.artists.map((artist) => {
@@ -58,27 +54,22 @@ const Artists = () => {
         })
     }
   }
-  console.log(similarArtists)
 
-
-  // console.log(artistsData)
-
-  return <>
-   <h1 className="RANDE"> RACIAL AND ETHNIC IDENTITY</h1>
-  <div className="randeipage">
-    {/* <h1 className="RANDE"> RACIAL AND ETHNIC IDENTITY</h1> */}
+  return <div className="randeipage">
+    <h1 className="RANDE"> Southern Gothic </h1>
+    <p>"Southern Gothic—a term taken from an established tradition in American Literature—is a category for artworks that feature themes and images drawn from the dark corners of the American South. From the grotesque masked figures present in Ralph Eugene Meatyard’s black-and-white photographs to the antebellum ruins of photographer Sally Mann's images, such works might evoke folklore, oral history, local communities, concepts of the abnormal, and plantation life."</p>
+    {/* <div id="typedtext" value={typewriter}></div> */}
     {artistsData.map((artist, index) => {
       return <div key={index}>
-        <div className="artistCard">
-          <h2 className="artistsName">{artist.name.toUpperCase()}</h2>
+        <div className="sGCard">
+          <h2 className="sgArtistsName">{artist.name.toUpperCase()}</h2>
           <img src={artist._links.thumbnail.href} alt={artist.name} />
 
         </div>
-
         {/* <Carousel
-          clickToChange
-          slidesPerPage={4}
-          centered> */}
+        clickToChange
+        slidesPerPage={4}
+        centered> */}
         <div className="similarArtistContainer">
           {similarArtists.map((similarArtist) => {
             if (similarArtist.originalArtistID === artist.id) {
@@ -95,21 +86,17 @@ const Artists = () => {
         </div>
         {/* </Carousel> */}
 
-        <button className="button-2" key={index} id={artist.id} value={artist._links.similar_artists.href} onClick={() => displaySimilar(event, index)}>Similar Artists</button>
+        <button className="button-3" key={index} id={artist.id} value={artist._links.similar_artists.href} onClick={() => displaySimilar(event, index)}>Similar Artists</button>
 
       </div>
     })}
   </div>
-  </>
-
-
-
-
-
 }
+
+
 
 
 
 const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6IiIsInN1YmplY3RfYXBwbGljYXRpb24iOiI1ZWU4YzAxOGFiMWRiZDAwMGY0YmYyYjIiLCJleHAiOjE1OTI5MjgxMzYsImlhdCI6MTU5MjMyMzMzNiwiYXVkIjoiNWVlOGMwMThhYjFkYmQwMDBmNGJmMmIyIiwiaXNzIjoiR3Jhdml0eSIsImp0aSI6IjVlZThlZDA4NWU1OTNkMDAwZTMxZWI2YyJ9.CztdCV8RDhXO5JbxoSjRG-pxjTej6vnmYdvVrN9uTqI'
 
-export default Artists
+export default SouthernGothic

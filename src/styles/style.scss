@@ -1,9 +1,16 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Girassol&family=Spectral+SC:wght@300&family=Zilla+Slab+Highlight&display=swap');
 
+* {
+  box-sizing: border-box;
+}
+
 body {
+  
   background-color: #fddab8;
   color:   #677880;
+ 
+  // height: 100%;
   // font-family: 'Bebas Neue', cursive;
   // font-style: italic;
   font-family: 'Girassol', cursive;
@@ -12,15 +19,130 @@ body {
 
 }
 
-h1 {
+h1.RANDE {
   font-size: 50px;
-  // color: #677880;
-}
-
-.randeipage {
+  padding: 20px 0 0px 0;
   text-align: center;
 }
 
-.artistCard {
+h2.artistsName {
+  padding: 5px 0 5px 0;
+}
+
+.sgArtistsName {
+  font-family: 'Bebas Neue', cursive;
+  padding: 5px 0 5px 0;
+ 
+}
+
+p {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 12px;
+  width: 50vw;
+
+}
+
+.randeipage {
+  display: flex;
+  flex-direction: column;
+  // flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   
 }
+
+.artistCard {
+
+  margin-top: 30px;
+  background-color: #b3c1b8;
+  padding: 0 0 20px 0;
+  // width: 25vw;
+  // height: 100%; 
+}
+
+
+.migrationACard {
+  margin-top: 30px;
+ 
+  background-color: #52527a;
+  padding: 0 0 20px 0;
+
+}
+
+.sGCard {
+
+  margin-top: 30px;
+ 
+  background-color: #36454f;
+  padding: 0 0 20px 0;
+
+
+}
+.similarArtistContainer{
+  display: flex;
+  flex-direction: row;
+  background-color: #A7A6BA
+  
+}
+
+.similarArtistCard {
+  width: 15vw;
+  margin: 1px;
+  
+}
+
+.button-2, .button-3 {
+  color: #fddab8;
+  border: 1px solid #677880;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-image: -webkit-linear-gradient(30deg, #677880 50%, transparent 50%);
+  background-image: linear-gradient(30deg, #677880 50%, transparent 50%);
+  background-size: 500px;
+  background-repeat: no-repeat;
+  background-position: 0%;
+  -webkit-transition: background 300ms ease-in-out;
+  transition: background 300ms ease-in-out;
+  outline: none;
+  width: 120px;
+  font-family: 'Girassol', cursive;
+}
+
+.button-3 {
+  border: 1px solid #36454f;
+  background-color: #36454f;
+  background-image: -webkit-linear-gradient(30deg, #36454f 50%, transparent 50%);
+  background-image: linear-gradient(30deg, #36454f 50%, transparent 50%);
+
+}
+
+.button-2:hover, .button-3:hover{
+  background-position: 100%;
+  color: #677880;
+  background-color: #fddab8;
+}
+
+// .parallax {
+//   /* The image used */
+  
+
+//   /* Full height */
+//   height: 100%; 
+
+//   /* Create the parallax scrolling effect */
+//   background-attachment: fixed;
+//   background-position: center;
+//   background-repeat: no-repeat;
+//   background-size: cover;
+// }
+
+
+
+// @media only screen and (min-width: 650px) {
+//   body {
+//     height: 100vh;
+//   }
+// }
