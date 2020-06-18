@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 
+import { Controller, Scene } from 'react-scrollmagic'
+
+
 const MigrationArtists = () => {
 
   const [artistsData, setArtistsData] = useState([])
@@ -55,20 +58,20 @@ const MigrationArtists = () => {
     }
   }
 
-  return <div className="randeipage">
+  return <div className="cardSection">
     <h1 className="RANDE"> MIGRATION</h1>
-    {/* <div id="typedtext" value={typewriter}></div> */}
+    <p>&quot;Human migration, which encompasses diaspora, exile, immigration, and emigration, is a significant aspect of world history that has shaped the ethnic, religious, and cultural identities we know today. In recent years, large numbers of migrant workers from South and Central America and the Caribbean have traveled to the United States, while the Mediterranean Sea has seen thousands of migrants traveling from northern Africa to Europe.&quot;</p>
     {artistsData.map((artist, index) => {
       return <div key={index}>
-        <div className="migrationACard">
-          <h2 className="artistsName">{artist.name.toUpperCase()}</h2>
-          <img src={artist._links.thumbnail.href} alt={artist.name} />
+        <Controller>
+          <Scene triggerHook={'onEnter'} classToggle="fadeInUp">
+            <div className="migrationACard">
+              <h2 className="artistsName">{artist.name.toUpperCase()}</h2>
+              <img src={artist._links.thumbnail.href} alt={artist.name} />
+            </div>
+          </Scene>
+        </Controller>
 
-        </div>
-        {/* <Carousel
-        clickToChange
-        slidesPerPage={4}
-        centered> */}
         <div className="similarArtistContainer">
           {similarArtists.map((similarArtist) => {
             if (similarArtist.originalArtistID === artist.id) {
@@ -81,53 +84,12 @@ const MigrationArtists = () => {
               return null
             }
           })}
-
         </div>
-        {/* </Carousel> */}
-
-        <button className="button-2" key={index} id={artist.id} value={artist._links.similar_artists.href} onClick={() => displaySimilar(event, index)}>Similar Artists</button>
-
+        <button className="button-4" key={index} id={artist.id} value={artist._links.similar_artists.href} onClick={() => displaySimilar(event, index)}>Similar Artists</button>
       </div>
     })}
   </div>
 }
-
-// var aText = new Array(
-//   'There are only 10 types of people in the world:',
-//   'Those who understand binary, and those who dont'
-// )
-// var iSpeed = 100 // time delay of print out
-// var iIndex = 0// start printing array at this posision
-// var iArrLength = aText[0].length // the length of the text array
-// var iScrollAt = 20 // start scrolling up at this many lines
-
-// var iTextPos = 0 // initialise text position
-// var sContents = ''// initialise contents variable
-// var iRow // initialise current row
-
-// function typewriter() {
-//   sContents = ' '
-//   iRow = Math.max(0, iIndex - iScrollAt)
-//   const destination = document.getElementsByClassName('typedtext')
-
-//   while (iRow < iIndex) {
-//     sContents += aText[iRow++] + '<br />'
-//   }
-//   destination.innerHTML = sContents + aText[iIndex].substring(0, iTextPos) + '_'
-//   if (iTextPos++ === iArrLength) {
-//     iTextPos = 0
-//     iIndex++
-//     if (iIndex !== aText.length) {
-//       iArrLength = aText[iIndex].length
-//       setTimeout('typewriter()', 500)
-//     }
-//   } else {
-//     setTimeout('typewriter()', iSpeed)
-//   }
-// }
-// typewriter()
-
-
 
 const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6IiIsInN1YmplY3RfYXBwbGljYXRpb24iOiI1ZWU4YzAxOGFiMWRiZDAwMGY0YmYyYjIiLCJleHAiOjE1OTI5MjgxMzYsImlhdCI6MTU5MjMyMzMzNiwiYXVkIjoiNWVlOGMwMThhYjFkYmQwMDBmNGJmMmIyIiwiaXNzIjoiR3Jhdml0eSIsImp0aSI6IjVlZThlZDA4NWU1OTNkMDAwZTMxZWI2YyJ9.CztdCV8RDhXO5JbxoSjRG-pxjTej6vnmYdvVrN9uTqI'
 

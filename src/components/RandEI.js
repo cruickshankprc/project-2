@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
-import Carousel, { Dots } from '@brainhubeu/react-carousel'
-import '@brainhubeu/react-carousel/lib/style.css'
-
-
+import { Controller, Scene } from 'react-scrollmagic'
 
 const Artists = () => {
 
@@ -30,10 +27,7 @@ const Artists = () => {
     if (buttonKey === key) {
       setSimilarArtists([])
     } else {
-
-
       const id = event.target.id
-
       fetch(event.target.value, { headers: { 'X-XAPP-Token': `${token}` } })
         .then(resp => resp.json())
         .then(data => {
@@ -54,52 +48,40 @@ const Artists = () => {
           })
           setKey(buttonKey)
           setSimilarArtists(result)
-
         })
     }
   }
-  console.log(similarArtists)
-
-
-  // console.log(artistsData)
-
   return <>
-   <h1 className="RANDE"> RACIAL AND ETHNIC IDENTITY</h1>
-  <div className="randeipage">
-    {/* <h1 className="RANDE"> RACIAL AND ETHNIC IDENTITY</h1> */}
-    {artistsData.map((artist, index) => {
-      return <div key={index}>
-        <div className="artistCard">
-          <h2 className="artistsName">{artist.name.toUpperCase()}</h2>
-          <img src={artist._links.thumbnail.href} alt={artist.name} />
+    <h1>RACIAL AND ETHNIC IDENTITY</h1>
 
-        </div>
-
-        {/* <Carousel
-          clickToChange
-          slidesPerPage={4}
-          centered> */}
-        <div className="similarArtistContainer">
-          {similarArtists.map((similarArtist) => {
-            if (similarArtist.originalArtistID === artist.id) {
-              return <div className="similarArtistCard">
-                <div> {similarArtist.name.toUpperCase()} </div>
-                <img src={similarArtist._links.thumbnail.href} alt={similarArtist.name} />
+    <div className="cardSection">
+      <p>&quot;From its increased significance at the height of European colonialism to the foundations of Enlightenment-era pseudoscience, the concept of race has been used to categorize humans along the lines of shared characteristics in order to understand human difference. Racism, which sociologist Howard Winant defines as “that which creates or reproduces hierarchical social structures based on essentialized racial categories,” has fueled unthinkable violations of human life.&quot;</p>
+      {artistsData.map((artist, index) => {
+        return <div key={index}>
+          <Controller>
+            <Scene triggerHook={'onEnter'} classToggle="fadeInUp">
+              <div className="artistCard">
+                <h2 className="artistsName">{artist.name.toUpperCase()}</h2>
+                <img src={artist._links.thumbnail.href} alt={artist.name} />
               </div>
-
-            } else {
-              return null
-            }
-          })}
-
+            </Scene>
+          </Controller>
+          <div className="similarArtistContainer">
+            {similarArtists.map((similarArtist) => {
+              if (similarArtist.originalArtistID === artist.id) {
+                return <div className="similarArtistCard">
+                  <div> {similarArtist.name.toUpperCase()} </div>
+                  <img src={similarArtist._links.thumbnail.href} alt={similarArtist.name} />
+                </div>
+              } else {
+                return null
+              }
+            })}
+          </div>
+          <button className="button-2" key={index} id={artist.id} value={artist._links.similar_artists.href} onClick={() => displaySimilar(event, index)}>Similar Artists</button>
         </div>
-        {/* </Carousel> */}
-
-        <button className="button-2" key={index} id={artist.id} value={artist._links.similar_artists.href} onClick={() => displaySimilar(event, index)}>Similar Artists</button>
-
-      </div>
-    })}
-  </div>
+      })}
+    </div>
   </>
 
 
