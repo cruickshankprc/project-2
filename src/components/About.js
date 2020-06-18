@@ -14,7 +14,7 @@ const About = () => {
       artists have the lowest share with just <span id="statistic">1.2%</span> of the works; Asian artists 
       total at <span id="statistic">9%</span>; and Hispanic and Latino artists constitute only <span id="statistic">2.8%</span> of the 
       artists.</p>
-    <p className="text-edit">We believe that diversity matters. This is a space to champion overlooked talents of POC artists.</p>
+    <p className="text-edit">We believe that diversity matters. This is a space to champion the talents of POC artists.</p>
     <p>For more info and how to support:
     </p>
     <ul>

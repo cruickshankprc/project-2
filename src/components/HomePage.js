@@ -12,10 +12,8 @@ const HomePage = () => {
     <Controller>
       <Scene >
         <div className="typewriter">
-          <p>
-            <span className="text-1"><span id="statistic">85.4%</span> of the works in the collections of all major US museums belong to <span id="artists">white artists,</span></span>
-            <span className="text-2"><span id="artists">African American</span> artists have <span id="statistic">1.2%</span></span>
-          </p>
+          <p><span className="text-1"><span id="statistic">85.4%</span> of the works in the collections of all major US museums belong to <span id="artists">white artists,</span></span></p>
+          <p><span className="text-2"><span id="artists">African American</span> artists have <span id="statistic">1.2%</span></span></p>
         </div>
       </Scene>
     </Controller>

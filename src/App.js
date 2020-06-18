@@ -30,8 +30,6 @@ const App = () => {
       <Route exact path="/migration" component={MigrationArtists} />
       <Route exact path="/sg" component={SouthernGothic} />
       <Route exact path="/about" component={About} />
-      
-
     </Switch>
   </HashRouter>
 }

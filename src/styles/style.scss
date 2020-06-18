@@ -6,11 +6,11 @@
 }
 
 body {
-  // background-color: #fddab8;
   background-color: lightgray;
   color:   #677880;
-  // font-family: 'Bebas Neue', cursive;
   font-family: 'Girassol', cursive;
+  min-height: 100vh;
+  max-width: 100vw;
 }
 
 a {
@@ -60,7 +60,6 @@ li {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  // height: 80px;
   background-color: transparent;
   border: none;
   transition: background-color 1s ease 0s;
@@ -68,15 +67,12 @@ li {
 
 .navbar .button {
   font-size: 14px;
-  // width: 15%;
   display: flex;
   flex-direction: row;
   background-color: transparent;
   color: #677880;
-  // padding: 25px 40px;
   outline: none;
   border: none;
-  
 }
 
 .button:hover {
@@ -91,6 +87,7 @@ li {
 
 .button:focus{ 
   outline: 0;
+  box-shadow: none!important;
   
 }
 
@@ -152,7 +149,7 @@ li {
     width: 0;
   }
   10%, 40% {
-    width: 36.9em;
+    width: 36.5em;
   }
 }
 
@@ -162,7 +159,7 @@ li {
   }
   
   60%, 90% {
-    width: 15.4em;
+    width: 14em;
   }
 }
 
